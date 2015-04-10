@@ -25,15 +25,16 @@ Main_Sdl::Main_Sdl()
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
     Elementy.push_back(new Pulpit());
     NeedRedraw = true;
+    toDrag = nullptr;
 }
 
-void Main_Sdl::HandleMouseDown() const
+void Main_Sdl::HandleMouseDown()
 {
     Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
     for(Element *element: Elementy)
     {
-        if(element->HandleMouseClick(mousePosition))
+        if(element->HandleMouseClick(mousePosition, &toDrag))
            break;
     }
 }
@@ -42,6 +43,12 @@ void Main_Sdl::HandleMouseMove()
 {
     Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
+    if(toDrag != nullptr)
+    {
+        toDrag->Drag(mousePosition);
+        NeedRedraw = true;
+        return;
+    }
     bool processed = false;
     for(Element *element: Elementy)
     {
@@ -61,6 +68,11 @@ bool Main_Sdl::HandleEvent(SDL_Event event)
     }
     if(event.type == SDL_MOUSEBUTTONUP || event.type == SDL_MOUSEMOTION)
     {
+        if(event.type == SDL_MOUSEBUTTONUP && toDrag != nullptr)
+        {
+            toDrag = nullptr;
+            NeedRedraw = true;
+        }
         HandleMouseMove();
     }
     return false;

@@ -6,6 +6,7 @@
 
 #include "Pulpit.h"
 #include "Button.h"
+#include "DragAndDropButton.h"
 #include <iostream>
 Pulpit::Pulpit()
 {
@@ -17,7 +18,7 @@ Pulpit::Pulpit()
     }
     width = CurrentDisplay.w;
     high = CurrentDisplay.h;
-    Elementy.push_back(new Button{24,24, 96, 48});
+    Elementy.push_back(new DragAndDropButton());
 }
 
 void Pulpit::Draw(SDL_Renderer* renderer) const

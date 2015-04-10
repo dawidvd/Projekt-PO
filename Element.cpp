@@ -31,21 +31,21 @@ Element::~Element()
     }
 }
 
-bool Element::HandleMouseClick(Point position)
+bool Element::HandleMouseClick(Point position , DragAndDropInterface** toDrag)
 {
     if(!isPointInside(position))
        return false;
     bool handled = false;
     for(Element *element: Elementy)
     {
-       if(element != nullptr && element->HandleMouseClick(position))
+       if(element != nullptr && element->HandleMouseClick(position, toDrag))
        {
            handled = true;
            break;
        }
     }
     if(!handled)
-        mouseClick();
+        mouseClick(toDrag);
     return true;
 }
 

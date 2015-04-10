@@ -19,6 +19,20 @@ struct Point
     {
         return !(*this < punkt);
     }
+    
+    Point& operator -= (Point& point)
+    {
+        x -= point.x;
+        y -= point.y;
+        return *this;
+    }
+    
+    Point& operator += (Point& point)
+    {
+        x += point.x;
+        y += point.y;
+        return *this;
+    }
 };
 
 #endif

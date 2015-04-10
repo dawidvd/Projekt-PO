@@ -11,6 +11,7 @@
 #include <SDL2/SDL.h>
 #include "Element.h"
 #include <vector>
+#include "DragAndDropInterface.h"   
 
 class Main_Sdl
 {
@@ -20,10 +21,11 @@ private:
     void Draw() const;
     std::vector<Element*> Elementy;
     bool NeedRedraw;
-    void HandleMouseDown() const;
+    void HandleMouseDown() ;
     void HandleMouseMove();
     //return true if Event is of type quit
     bool HandleEvent(SDL_Event);
+    DragAndDropInterface* toDrag;
     
 public:
     Main_Sdl();

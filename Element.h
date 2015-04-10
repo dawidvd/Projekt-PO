@@ -12,6 +12,7 @@
 #include "Point.h"
 #include "Color.h"
 #include <vector>
+#include "DragAndDropInterface.h"
 
 class Element
 {
@@ -21,7 +22,7 @@ protected:
     Point position;
     Color color;
     std::vector<Element*> Elementy;
-    virtual void mouseClick() {}
+    virtual void mouseClick(DragAndDropInterface **toDrag) {}
     virtual void highlight(){};
     virtual void unHighlight(){};
     bool isPointInside(Point point) const;
@@ -30,7 +31,7 @@ protected:
     Element( int X = 0,  int  Y = 0, int width = 100, int high = 100);
 public:
     virtual void Draw(SDL_Renderer*) const;
-    bool HandleMouseClick(Point position);
+    bool HandleMouseClick(Point position, DragAndDropInterface **toDrag);
     bool HandleMouseUp(Point position, bool &Processed);
     ~Element();
 };

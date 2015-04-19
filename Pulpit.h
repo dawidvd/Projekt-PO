@@ -7,6 +7,7 @@
 #ifndef __SDL_DOMO__Pulpit__
 #define __SDL_DOMO__Pulpit__
 
+    Elementy.push_back(new DragAndDropButton());
 #include <stdio.h>
 #include "Element.h"
 

@@ -8,7 +8,7 @@
 
 void Button::mouseClick(DragAndDropInterface**)
 {
-    
+	
 }
 
 void Button::highlight()

@@ -70,13 +70,13 @@ bool Main_Sdl::HandleEvent(SDL_Event event)
     {
         if(event.type == SDL_MOUSEBUTTONUP && toDrag != nullptr)
         {
+			toDrag->Drop();
             toDrag = nullptr;
             NeedRedraw = true;
         }
         HandleMouseMove();
     }
     return false;
-    
 }
 
 bool Main_Sdl::Loop()

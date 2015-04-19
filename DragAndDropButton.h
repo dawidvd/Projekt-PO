@@ -19,6 +19,7 @@ protected:
     virtual void mouseClick(DragAndDropInterface**) override;
 public:
     virtual void Drag(Point) override;
+	virtual void Drop() override;
     DragAndDropButton();
     
 };

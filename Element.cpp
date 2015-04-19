@@ -36,13 +36,14 @@ bool Element::HandleMouseClick(Point position , DragAndDropInterface** toDrag)
     if(!isPointInside(position))
        return false;
     bool handled = false;
-    for(Element *element: Elementy)
+    for(int i = Elementy.size(); i-- > 0;)
     {
-       if(element != nullptr && element->HandleMouseClick(position, toDrag))
-       {
-           handled = true;
-           break;
-       }
+		Element *element = Elementy[i];
+		if(element != nullptr && element->HandleMouseClick(position, toDrag))
+		{
+			handled = true;
+			break;
+		}
     }
     if(!handled)
         mouseClick(toDrag);
@@ -56,12 +57,14 @@ bool Element::isPointInside(Point point) const
 
 bool Element::HandleMouseUp(Point position, bool &Processed)
 {
-    for(Element* element: Elementy)
-    {
-        if(element != nullptr)
-            element->HandleMouseUp(position, Processed);
-    }
     bool out = false;
+    for(int i = Elementy.size(); i-- > 0;)
+    {
+		Element *element = Elementy[i];
+        if(element != nullptr)
+            if(element->HandleMouseUp(position, Processed))
+				out = true;
+    }
     if(!Processed && isPointInside(position))
     {
         Processed = true;

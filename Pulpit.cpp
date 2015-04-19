@@ -19,6 +19,7 @@ Pulpit::Pulpit()
     width = CurrentDisplay.w;
     high = CurrentDisplay.h;
     Elementy.push_back(new DragAndDropButton());
+    Elementy.push_back(new DragAndDropButton());
 }
 
 void Pulpit::Draw(SDL_Renderer* renderer) const

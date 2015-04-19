@@ -27,3 +27,8 @@ void DragAndDropButton::Drag(Point mousePosition)
     color.r = 0;
     color.g = 0;
 }
+
+void DragAndDropButton::Drop()
+{
+	highlight();
+}

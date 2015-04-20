@@ -22,7 +22,12 @@ Main_Sdl::Main_Sdl()
     }
     renderer = SDL_CreateRenderer(main_window, -1, SDL_RENDERER_ACCELERATED );
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    Elementy.push_back(new Pulpit());
+
+    auto new_desktop = new Pulpit();
+
+    onClick.connect(bind(&Element::HandleMouseClick, new_desktop, _1, _2));
+
+    Elementy.push_back(new_desktop);
     NeedRedraw = true;
     toDrag = nullptr;
 }
@@ -31,11 +36,12 @@ void Main_Sdl::HandleMouseDown()
 {
     Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-    for(Element *element: Elementy)
+    /*for(Element *element: Elementy)
     {
         if(element->HandleMouseClick(mousePosition, *this))
            break;
-    }
+    }*/
+    onClick(mousePosition, *this);
 }
 
 void Main_Sdl::HandleMouseMove()

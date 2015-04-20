@@ -19,7 +19,7 @@ Pulpit::Pulpit()
     width = CurrentDisplay.w;
     high = CurrentDisplay.h;
 	surface = new Surface();
-	surface->AddImage("hello.bmp");
+	surface->SetString("hello.bmp");
     Elementy.push_back(new DragAndDropButton());
     Elementy.push_back(new DragAndDropButton());
 }

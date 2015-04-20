@@ -5,7 +5,7 @@ CC = clang++
 
 COMPILER_FLAGS = -w -std=c++11
 
-LINKER_FLAGS = -lSDL2 -I/usr/local/include -L/usr/local/lib
+LINKER_FLAGS = -lSDL2 -lSDL_ttf -I/usr/local/include -L/usr/local/lib
 
 OBJ_NAME = main
 

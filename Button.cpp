@@ -6,7 +6,7 @@
 
 #include "Button.h"
 
-void Button::mouseClick(DragAndDropInterface**)
+void Button::mouseClick(Main_Sdl&)
 {
 	
 }

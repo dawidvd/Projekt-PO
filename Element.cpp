@@ -31,7 +31,7 @@ Element::~Element()
     }
 }
 
-bool Element::HandleMouseClick(Point position , DragAndDropInterface** toDrag)
+bool Element::HandleMouseClick(Point position , Main_Sdl& main)
 {
     if(!isPointInside(position))
        return false;
@@ -39,14 +39,14 @@ bool Element::HandleMouseClick(Point position , DragAndDropInterface** toDrag)
     for(int i = Elementy.size(); i-- > 0;)
     {
 		Element *element = Elementy[i];
-		if(element != nullptr && element->HandleMouseClick(position, toDrag))
+		if(element != nullptr && element->HandleMouseClick(position, main))
 		{
 			handled = true;
 			break;
 		}
     }
     if(!handled)
-        mouseClick(toDrag);
+        mouseClick(main);
     return true;
 }
 
@@ -85,4 +85,19 @@ bool Element::HandleMouseUp(Point position, bool &Processed)
         }
     }
     return out;
+}
+
+bool Element::PutOnTop(Element* element)
+{
+	unsigned int index = 0;
+	for(; index < Elementy.size(); index ++)
+	{
+		if(Elementy[index] == element)
+			break;
+	}
+	if(index >= Elementy.size())
+		return false;
+	Elementy.erase(Elementy.begin() + index);
+	Elementy.push_back(element);
+
 }

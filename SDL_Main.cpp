@@ -34,7 +34,7 @@ void Main_Sdl::HandleMouseDown()
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
     for(Element *element: Elementy)
     {
-        if(element->HandleMouseClick(mousePosition, &toDrag))
+        if(element->HandleMouseClick(mousePosition, *this))
            break;
     }
 }
@@ -121,4 +121,16 @@ void Main_Sdl::Draw() const
     }
     SDL_SetRenderDrawColor(renderer, R, G, B, A);
     SDL_RenderPresent(renderer);
+}
+
+void Main_Sdl::SetToDrag(DragAndDropInterface* toDrag)
+{
+	this->toDrag = toDrag;
+}
+
+Element& Main_Sdl::GetDesktop(unsigned int index )
+{
+	if(index > Elementy.size())
+		return *Elementy[0];
+	return *Elementy[index];
 }

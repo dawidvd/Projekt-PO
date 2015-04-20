@@ -9,11 +9,12 @@
 
 #include <stdio.h>
 #include <SDL2/SDL.h>
+#include <vector>
 #include "Point.h"
 #include "Color.h"
-#include <vector>
-#include "DragAndDropInterface.h"
-
+#include "SDL_Main.h"
+class Main_Sdl;
+class Pulpit;
 class Element
 {
 protected:
@@ -22,7 +23,7 @@ protected:
     Point position;
     Color color;
     std::vector<Element*> Elementy;
-    virtual void mouseClick(DragAndDropInterface **toDrag) {}
+    virtual void mouseClick(Main_Sdl& sdl) {}
     virtual void highlight(){};
     virtual void unHighlight(){};
     bool isPointInside(Point point) const;
@@ -31,9 +32,11 @@ protected:
     Element( int X = 0,  int  Y = 0, int width = 100, int high = 100);
 public:
     virtual void Draw(SDL_Renderer*) const;
-    bool HandleMouseClick(Point position, DragAndDropInterface **toDrag);
+    bool HandleMouseClick(Point position, Main_Sdl &sdl);
     bool HandleMouseUp(Point position, bool &Processed);
+	bool PutOnTop(Element*);
     ~Element();
+	
 };
 
 #endif /* defined(__SDL_DOMO__Element__) */

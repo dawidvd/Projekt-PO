@@ -16,7 +16,7 @@ class DragAndDropButton: public Button, public DragAndDropInterface
 private:
     Point startPos;
 protected:
-    virtual void mouseClick(DragAndDropInterface**) override;
+    virtual void mouseClick(Main_Sdl&) override;
 public:
     virtual void Drag(Point) override;
 	virtual void Drop() override;

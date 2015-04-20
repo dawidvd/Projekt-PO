@@ -13,6 +13,7 @@
 #include <vector>
 #include "DragAndDropInterface.h"   
 
+class Element;
 class Main_Sdl
 {
 private:
@@ -31,6 +32,8 @@ public:
     Main_Sdl();
     bool Loop();
     ~Main_Sdl();
+	void SetToDrag(DragAndDropInterface* toDrag);
+	Element& GetDesktop(unsigned int index = 0);
 };
 
 #endif /* defined(__SDL_DOMO__SDL_Main__) */

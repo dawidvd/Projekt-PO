@@ -11,10 +11,11 @@
 DragAndDropButton::DragAndDropButton(): Button()
 {}
 
-void DragAndDropButton::mouseClick(DragAndDropInterface **toDrag)
+void DragAndDropButton::mouseClick(Main_Sdl& main)
 {
     SDL_GetMouseState(&startPos.x, &startPos.y);
-    *toDrag = this;
+	main.GetDesktop(0).PutOnTop(this);
+    main.SetToDrag(this);
     color.r = 255;
     color.g = 255;
 }

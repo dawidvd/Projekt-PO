@@ -14,7 +14,7 @@ class Button : public Element
 protected:
     virtual void highlight() override;
     virtual void unHighlight() override;
-    virtual void mouseClick(DragAndDropInterface**) override;
+    virtual void mouseClick(Main_Sdl&) override;
     
 public:
     Button(Point positoin, int high = 100, int width = 100);

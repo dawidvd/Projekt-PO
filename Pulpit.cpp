@@ -8,7 +8,7 @@
 #include "Button.h"
 #include "DragAndDropButton.h"
 #include <iostream>
-Pulpit::Pulpit()
+Pulpit::Pulpit(SDL_Surface* win)
 {
     position = Point{0, 0};
     SDL_DisplayMode CurrentDisplay ;
@@ -18,6 +18,8 @@ Pulpit::Pulpit()
     }
     width = CurrentDisplay.w;
     high = CurrentDisplay.h;
+	surface = new Surface();
+	surface->AddImage("hello.bmp");
     Elementy.push_back(new DragAndDropButton());
     Elementy.push_back(new DragAndDropButton());
 }

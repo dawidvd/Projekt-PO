@@ -13,6 +13,8 @@
 #include "Point.h"
 #include "Color.h"
 #include "SDL_Main.h"
+#include "Surface.h"
+
 class Main_Sdl;
 class Pulpit;
 class Element
@@ -23,6 +25,7 @@ protected:
     Point position;
     Color color;
     std::vector<Element*> Elementy;
+	Surface *surface;
     virtual void mouseClick(Main_Sdl& sdl) {}
     virtual void highlight(){};
     virtual void unHighlight(){};
@@ -35,6 +38,7 @@ public:
     bool HandleMouseClick(Point position, Main_Sdl &sdl);
     bool HandleMouseUp(Point position, bool &Processed);
 	bool PutOnTop(Element*);
+	void SetSurface(Surface);
     ~Element();
 	
 };

@@ -1,4 +1,4 @@
-OBJS = main.cpp Button.cpp SDL_Main.cpp DragAndDropButton.cpp Pulpit.cpp Element.cpp
+OBJS = main.cpp Button.cpp DragAndDropButton.cpp Pulpit.cpp Element.cpp SDL_Main.cpp Surface.cpp
 
 CC = clang++
 #CC = g++

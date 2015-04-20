@@ -19,10 +19,11 @@ class Main_Sdl
 private:
     SDL_Window* main_window;
     SDL_Renderer* renderer;
-    void Draw() const;
+	SDL_Surface *windowSurface;
     std::vector<Element*> Elementy;
     bool NeedRedraw;
-    void HandleMouseDown() ;
+    void Draw() const;
+    void HandleMouseDown();
     void HandleMouseMove();
     //return true if Event is of type quit
     bool HandleEvent(SDL_Event);
@@ -33,7 +34,9 @@ public:
     bool Loop();
     ~Main_Sdl();
 	void SetToDrag(DragAndDropInterface* toDrag);
-	Element& GetDesktop(unsigned int index = 0);
+	Element& GetDesktop(unsigned int index = 0) const;
+	SDL_Surface* GetWindowSurface() const;
+
 };
 
 #endif /* defined(__SDL_DOMO__SDL_Main__) */

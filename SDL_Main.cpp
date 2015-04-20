@@ -3,7 +3,6 @@
 //  SDL DOMO
 //
 //
-
 #include "SDL_Main.h"
 #include "Pulpit.h"
 
@@ -14,7 +13,7 @@ Main_Sdl::Main_Sdl()
         exit(1);
     }
     main_window = SDL_CreateWindow("Main", 0, 0, 1000, 800, SDL_WINDOW_SHOWN);
-    SDL_SetWindowFullscreen(main_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
+	SDL_SetWindowFullscreen(main_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
     if(main_window == nullptr)
     {
         SDL_DestroyWindow(main_window);
@@ -22,8 +21,9 @@ Main_Sdl::Main_Sdl()
         exit(1);
     }
     renderer = SDL_CreateRenderer(main_window, -1, SDL_RENDERER_ACCELERATED );
+	windowSurface = SDL_GetWindowSurface(main_window);
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    Elementy.push_back(new Pulpit());
+    Elementy.push_back(new Pulpit(windowSurface));
     NeedRedraw = true;
     toDrag = nullptr;
 }
@@ -128,9 +128,14 @@ void Main_Sdl::SetToDrag(DragAndDropInterface* toDrag)
 	this->toDrag = toDrag;
 }
 
-Element& Main_Sdl::GetDesktop(unsigned int index )
+Element& Main_Sdl::GetDesktop(unsigned int index ) const
 {
 	if(index > Elementy.size())
 		return *Elementy[0];
 	return *Elementy[index];
+}
+
+SDL_Surface* Main_Sdl::GetWindowSurface() const
+{
+	return windowSurface;
 }

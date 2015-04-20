@@ -16,6 +16,8 @@ void DragAndDropButton::mouseClick(Main_Sdl& main)
     SDL_GetMouseState(&startPos.x, &startPos.y);
 	main.GetDesktop(0).PutOnTop(this);
     main.SetToDrag(this);
+	surface = new Surface();
+	surface->AddImage("hello.bmp");
     color.r = 255;
     color.g = 255;
 }

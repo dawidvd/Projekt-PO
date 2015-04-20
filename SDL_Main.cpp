@@ -21,9 +21,8 @@ Main_Sdl::Main_Sdl()
         exit(1);
     }
     renderer = SDL_CreateRenderer(main_window, -1, SDL_RENDERER_ACCELERATED );
-	windowSurface = SDL_GetWindowSurface(main_window);
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    Elementy.push_back(new Pulpit(windowSurface));
+    Elementy.push_back(new Pulpit());
     NeedRedraw = true;
     toDrag = nullptr;
 }
@@ -135,7 +134,3 @@ Element& Main_Sdl::GetDesktop(unsigned int index ) const
 	return *Elementy[index];
 }
 
-SDL_Surface* Main_Sdl::GetWindowSurface() const
-{
-	return windowSurface;
-}

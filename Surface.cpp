@@ -11,7 +11,10 @@ void Surface::Draw(SDL_Rect* rect, SDL_Renderer* renderer)
 	if(mySurface != nullptr && renderer != nullptr && rect != nullptr)
 	{
 		if(myTexture == nullptr)
+		{
 			myTexture = SDL_CreateTextureFromSurface(renderer, mySurface);
+			SDL_SetTextureBlendMode(myTexture,SDL_BLENDMODE_BLEND);
+		}
 		if(myTexture != nullptr)
 			SDL_RenderCopy(renderer, myTexture, NULL, rect);
 	}

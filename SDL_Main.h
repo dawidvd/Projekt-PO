@@ -19,7 +19,6 @@ class Main_Sdl
 private:
     SDL_Window* main_window;
     SDL_Renderer* renderer;
-	SDL_Surface *windowSurface;
     std::vector<Element*> Elementy;
     bool NeedRedraw;
     void Draw() const;
@@ -35,7 +34,6 @@ public:
     ~Main_Sdl();
 	void SetToDrag(DragAndDropInterface* toDrag);
 	Element& GetDesktop(unsigned int index = 0) const;
-	SDL_Surface* GetWindowSurface() const;
 
 };
 

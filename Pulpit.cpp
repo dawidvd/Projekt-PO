@@ -8,7 +8,7 @@
 #include "Button.h"
 #include "DragAndDropButton.h"
 #include <iostream>
-Pulpit::Pulpit(SDL_Surface* win)
+Pulpit::Pulpit()
 {
     position = Point{0, 0};
     SDL_DisplayMode CurrentDisplay ;

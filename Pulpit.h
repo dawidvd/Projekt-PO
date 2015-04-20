@@ -14,7 +14,7 @@ class Pulpit: public Element
 {
     bool change = false;
 public:
-    Pulpit(SDL_Surface*);
+    Pulpit();
     virtual void Draw(SDL_Renderer* renderer) const override;
 };
 

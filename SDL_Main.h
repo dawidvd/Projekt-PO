@@ -7,11 +7,14 @@
 #ifndef __SDL_DOMO__SDL_Main__
 #define __SDL_DOMO__SDL_Main__
 
+#include <boost/signal.hpp>
+#include <boost/bind.hpp>
+
 #include <stdio.h>
 #include <SDL2/SDL.h>
 #include "Element.h"
 #include <vector>
-#include "DragAndDropInterface.h"   
+#include "DragAndDropInterface.h"
 
 class Element;
 class Main_Sdl
@@ -27,7 +30,9 @@ private:
     //return true if Event is of type quit
     bool HandleEvent(SDL_Event);
     DragAndDropInterface* toDrag;
-    
+
+    boost::signal<bool (Point, Main_Sdl&)> onClick;
+
 public:
     Main_Sdl();
     bool Loop();

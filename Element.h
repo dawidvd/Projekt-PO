@@ -40,7 +40,7 @@ public:
 	bool PutOnTop(Element*);
 	void SetSurface(Surface);
     ~Element();
-	
+
 };
 
 #endif /* defined(__SDL_DOMO__Element__) */

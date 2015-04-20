@@ -5,7 +5,7 @@
 //
 
 #include "Element.h"
-Element::Element(Point position,  int width,  int high) : position(position), high(high), width(width) {}
+Element::Element(Point position,  int width,  int high) : position(position), high(high), width(width) {surface = nullptr;}
 
 Element::Element( int X,  int Y,  int width,  int high) : Element::Element(Point{X,Y}, high, width) { }
 

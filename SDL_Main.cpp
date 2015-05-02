@@ -4,7 +4,7 @@
 //
 //
 #include "SDL_Main.h"
-#include "Pulpit.h"
+#include "Desktop.h"
 
 Main_Sdl::Main_Sdl()
 {
@@ -12,6 +12,7 @@ Main_Sdl::Main_Sdl()
     {
         exit(1);
     }
+	TTF_Init();
     main_window = SDL_CreateWindow("Main", 0, 0, 1000, 800, SDL_WINDOW_SHOWN);
 	SDL_SetWindowFullscreen(main_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
     if(main_window == nullptr)
@@ -22,7 +23,7 @@ Main_Sdl::Main_Sdl()
     }
     renderer = SDL_CreateRenderer(main_window, -1, SDL_RENDERER_ACCELERATED );
     SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-    Elementy.push_back(new Pulpit());
+    Elements.push_back(new Desktop());
     NeedRedraw = true;
     toDrag = nullptr;
 }
@@ -31,7 +32,7 @@ void Main_Sdl::HandleMouseDown()
 {
     Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
-    for(Element *element: Elementy)
+    for(Element *element: Elements)
     {
         if(element->HandleMouseClick(mousePosition, *this))
            break;
@@ -49,7 +50,7 @@ void Main_Sdl::HandleMouseMove()
         return;
     }
     bool processed = false;
-    for(Element *element: Elementy)
+    for(Element *element: Elements)
     {
         if(element->HandleMouseUp(mousePosition, processed))
             NeedRedraw = true;
@@ -99,8 +100,9 @@ Main_Sdl::~Main_Sdl()
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(main_window);
+	TTF_Quit();
     SDL_Quit();
-    for(Element* element : Elementy)
+    for(Element* element : Elements)
     {
        if(element != nullptr)
            delete element;
@@ -113,7 +115,7 @@ void Main_Sdl::Draw() const
     SDL_GetRenderDrawColor(renderer, &R, &G, &B, &A);
     SDL_RenderClear(renderer);
     //Draw all elements
-    for(Element *element : Elementy)
+    for(Element *element : Elements)
     {
         if(element != nullptr)
             element->Draw(renderer);
@@ -129,8 +131,8 @@ void Main_Sdl::SetToDrag(DragAndDropInterface* toDrag)
 
 Element& Main_Sdl::GetDesktop(unsigned int index ) const
 {
-	if(index > Elementy.size())
-		return *Elementy[0];
-	return *Elementy[index];
+	if(index > Elements.size())
+		return *Elements[0];
+	return *Elements[index];
 }
 

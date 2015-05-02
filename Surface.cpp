@@ -28,7 +28,18 @@ Surface::~Surface()
 		SDL_DestroyTexture(myTexture);
 }
 
-void Surface::AddImage(std::string string)
+void Surface::SetImage(std::string string)
 {
 	mySurface = SDL_LoadBMP(string.c_str());
+}
+
+void Surface::SetString(std::string string, unsigned int size)
+{
+	TTF_Font* Font = TTF_OpenFont("Font.ttf", size);
+	SDL_Color color = {0,0,0, 1};
+	if(Font)
+	{
+		mySurface = TTF_RenderText_Solid(Font, string.c_str(), color);
+		TTF_CloseFont(Font);
+	}
 }

@@ -20,7 +20,6 @@ protected:
 public:
     virtual void Drag(Point) override;
 	virtual void Drop() override;
-    DragAndDropButton();
-    
+   using Button::Button; 
 };
 #endif /* defined(__SDL_DOMO__DragAndDropButton__) */

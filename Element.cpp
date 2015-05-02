@@ -5,7 +5,7 @@
 //
 
 #include "Element.h"
-Element::Element(Point position,  int width,  int high) : position(position), high(high), width(width) {surface = nullptr;}
+Element::Element(Point position,  int width,  int high) : high(high), width(width) ,position(position) {surface = nullptr;}
 
 Element::Element( int X,  int Y,  int width,  int high) : Element::Element(Point{X,Y}, high, width) { }
 
@@ -18,8 +18,8 @@ void Element::Draw(SDL_Renderer* renderer) const
 	{
 		surface->Draw(&temp, renderer);
 	}
-    //Rysuje elementy
-    for(Element *element : Elementy)
+    //Rysuje elements
+    for(Element *element : Elements)
     {
         if(element != nullptr)
             element->Draw(renderer);
@@ -28,7 +28,7 @@ void Element::Draw(SDL_Renderer* renderer) const
 
 Element::~Element()
 {
-    for(Element* element : Elementy)
+    for(Element* element : Elements)
     {
        if(element != nullptr)
            delete element;
@@ -42,9 +42,9 @@ bool Element::HandleMouseClick(Point position , Main_Sdl& main)
     if(!isPointInside(position))
        return false;
     bool handled = false;
-    for(int i = Elementy.size(); i-- > 0;)
+    for(int i = Elements.size(); i-- > 0;)
     {
-		Element *element = Elementy[i];
+		Element *element = Elements[i];
 		if(element != nullptr && element->HandleMouseClick(position, main))
 		{
 			handled = true;
@@ -64,9 +64,9 @@ bool Element::isPointInside(Point point) const
 bool Element::HandleMouseUp(Point position, bool &Processed)
 {
     bool out = false;
-    for(int i = Elementy.size(); i-- > 0;)
+    for(int i = Elements.size(); i-- > 0;)
     {
-		Element *element = Elementy[i];
+		Element *element = Elements[i];
         if(element != nullptr)
             if(element->HandleMouseUp(position, Processed))
 				out = true;
@@ -96,16 +96,17 @@ bool Element::HandleMouseUp(Point position, bool &Processed)
 
 bool Element::PutOnTop(Element* element)
 {
-	if(Elementy[Elementy.size() - 1] == element)
+	if(Elements[Elements.size() - 1] == element)
 		return true;
 	unsigned int index = 0;
-	for(; index < Elementy.size(); index ++)
+	for(; index < Elements.size(); index ++)
 	{
-		if(Elementy[index] == element)
+		if(Elements[index] == element)
 			break;
 	}
-	if(index >= Elementy.size())
+	if(index >= Elements.size())
 		return false;
-	Elementy.erase(Elementy.begin() + index);
-	Elementy.push_back(element);
+	Elements.erase(Elements.begin() + index);
+	Elements.push_back(element);
+	return true;
 }

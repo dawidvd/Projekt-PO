@@ -16,7 +16,6 @@
 #include "Surface.h"
 
 class Main_Sdl;
-class Pulpit;
 class Element
 {
 protected:
@@ -24,9 +23,9 @@ protected:
     bool highlighted = false;
     Point position;
     Color color;
-    std::vector<Element*> Elementy;
+    std::vector<Element*> Elements;
 	Surface *surface;
-    virtual void mouseClick(Main_Sdl& sdl) {}
+    virtual void mouseClick(Main_Sdl& ) {}
     virtual void highlight(){};
     virtual void unHighlight(){};
     bool isPointInside(Point point) const;
@@ -39,7 +38,7 @@ public:
     bool HandleMouseUp(Point position, bool &Processed);
 	bool PutOnTop(Element*);
 	void SetSurface(Surface);
-    ~Element();
+    virtual ~Element();
 	
 };
 

@@ -15,7 +15,7 @@ class DragAndDropInterface
 protected:
     DragAndDropInterface(){};
 public:
-    virtual void Drag(Point){};
-	virtual void Drop(){};
+    virtual void Drag(Point) = 0;
+	virtual void Drop() = 0;
 };
 #endif /* defined(__SDL_DOMO__DragAndDropInterface__) */

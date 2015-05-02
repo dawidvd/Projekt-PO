@@ -9,7 +9,7 @@ Element::Element(Point position,  int width,  int high) : high(high), width(widt
 
 Element::Element( int X,  int Y,  int width,  int high) : Element::Element(Point{X,Y}, high, width) { }
 
-void Element::Draw(SDL_Renderer* renderer) const
+void Element::Draw(SDL_Renderer* renderer) 
 {
     SDL_Rect temp = {position.x, position.y, width, high} ;
     color.SetRendererColor(renderer);

@@ -12,8 +12,6 @@
 #include "Point.h"
 class DragAndDropInterface
 {
-protected:
-    DragAndDropInterface(){};
 public:
     virtual void Drag(Point) = 0;
 	virtual void Drop() = 0;

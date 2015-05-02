@@ -7,7 +7,6 @@
 #ifndef __SDL_DOMO__Button__
 #define __SDL_DOMO__Button__
 
-#include <stdio.h>
 #include "Element.h"
 class Button : public Element
 {

@@ -7,6 +7,9 @@
 #include "Desktop.h"
 #include "Button.h"
 #include "DragAndDropButton.h"
+#include "Icon.h"
+#include "Label.h"
+#include "Window.h"
 #include <iostream>
 Desktop::Desktop()
 {
@@ -21,6 +24,13 @@ Desktop::Desktop()
 	surface = new Surface();
 	surface->SetString("hello.bmp", 60);
 	color = color.GetFlatColor(3);
-    Elements.push_back(new DragAndDropButton());
-    Elements.push_back(new DragAndDropButton(10, 20, 192, 96));
+	Elements.push_back(new Icon<Window>(this));
+	Elements.push_back(new Label("Open window", 200, 12));
+	
+    //Elements.push_back(new DragAndDropButton());
+}
+
+void Desktop::AddWindow(Element* window)
+{
+	Elements.push_back(window);
 }

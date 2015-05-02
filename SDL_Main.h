@@ -19,7 +19,7 @@ class Main_Sdl
 private:
     SDL_Window* main_window;
     SDL_Renderer* renderer;
-    std::vector<Element*> Elementy;
+    std::vector<Element*> Elements;
     bool NeedRedraw;
     void Draw() const;
     void HandleMouseDown();

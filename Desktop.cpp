@@ -1,14 +1,14 @@
 //
-//  Pulpit.cpp
+//  Desktop.cpp
 //  SDL DOMO
 //
 //
 
-#include "Pulpit.h"
+#include "Desktop.h"
 #include "Button.h"
 #include "DragAndDropButton.h"
 #include <iostream>
-Pulpit::Pulpit()
+Desktop::Desktop()
 {
     position = Point{0, 0};
     SDL_DisplayMode CurrentDisplay ;
@@ -19,12 +19,8 @@ Pulpit::Pulpit()
     width = CurrentDisplay.w;
     high = CurrentDisplay.h;
 	surface = new Surface();
-	surface->SetString("hello.bmp");
-    Elementy.push_back(new DragAndDropButton());
-    Elementy.push_back(new DragAndDropButton());
-}
-
-void Pulpit::Draw(SDL_Renderer* renderer) const
-{
-    Element::Draw(renderer);
+	surface->SetString("hello.bmp", 60);
+	color = color.GetFlatColor(3);
+    Elements.push_back(new DragAndDropButton());
+    Elements.push_back(new DragAndDropButton(10, 20, 192, 96));
 }

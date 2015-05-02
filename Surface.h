@@ -20,7 +20,7 @@ public:
 	void Draw(SDL_Rect*, SDL_Renderer*);
 	~Surface();
 	void SetImage(std::string);
-	void SetString(std::string);
+	void SetString(std::string, unsigned int i = 14);
 
 };
 #endif /* defined(__SDL_DOMO__Surface__) */

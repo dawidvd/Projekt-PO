@@ -33,12 +33,13 @@ void Surface::SetImage(std::string string)
 	mySurface = SDL_LoadBMP(string.c_str());
 }
 
-void Surface::SetString(std::string string)
+void Surface::SetString(std::string string, unsigned int size)
 {
-	TTF_Font* gFont = TTF_OpenFont("Font.ttf", 12);
-	SDL_Color color = {0,0,0};
-	if(gFont)
-		mySurface = TTF_RenderText_Solid(gFont, "test", color);
-	if(gFont)
-		TTF_CloseFont(gFont);
+	TTF_Font* Font = TTF_OpenFont("Font.ttf", size);
+	SDL_Color color = {0,0,0, 1};
+	if(Font)
+	{
+		mySurface = TTF_RenderText_Solid(Font, string.c_str(), color);
+		TTF_CloseFont(Font);
+	}
 }

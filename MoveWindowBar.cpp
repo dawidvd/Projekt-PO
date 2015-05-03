@@ -25,7 +25,7 @@ void MoveWindowBar::mouseClick(Main_Sdl& main)
 	SDL_GetMouseState(&startPos.x, &startPos.y);
 	main.GetDesktop(0).PutOnTop(this);
 	main.SetToDrag(this);
-	color = color.GetFlatColor(0);
+	color = color.GetFlatColor(FlatColor::concrete);
 }
 
 void MoveWindowBar::Resize(int newWidth, int newHigh) 

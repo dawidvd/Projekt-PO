@@ -8,12 +8,12 @@
 
 void Button::highlight()
 {
-	color = color.GetFlatColor(1);
+	color = color.GetFlatColor(FlatColor::turquoise);
 }
 
 void Button::unHighlight()
 {
-	color = color.GetFlatColor(15);
+	color = color.GetFlatColor(FlatColor::clouds);
 }
 
 Button::Button(Point position,  int width,  int high) : Element(position, width, high)

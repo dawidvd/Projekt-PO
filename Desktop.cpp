@@ -21,9 +21,7 @@ Desktop::Desktop()
     }
     width = CurrentDisplay.w;
     high = CurrentDisplay.h;
-	surface = new Surface();
-	surface->SetString("hello.bmp", 60);
-	color = color.GetFlatColor(3);
+	color = color.GetFlatColor(FlatColor::silver);
 	Elements.push_back(new Icon<Window>(this));
 	Elements.push_back(new Label("Open window", 200, 12));
 	

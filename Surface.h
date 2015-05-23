@@ -8,7 +8,7 @@
 #ifndef __SDL_DOMO__Surface__
 #define __SDL_DOMO__Surface__
 #include <SDL2/SDL.h>
-#include <SDL/SDL_ttf.h>
+#include <SDL_ttf.h>
 #include <string>
 
 class Surface

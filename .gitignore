@@ -33,3 +33,6 @@
 # tags and debug files
 tags
 *.dSYM
+# Cmake
+/CMakeFiles
+

@@ -36,7 +36,7 @@ public:
     bool HandleMouseClick(Point position, Main_Sdl &sdl);
     bool HandleMouseUp(Point position, bool &Processed);
 	bool PutOnTop(Element*);
-	void SetSurface(Surface);
+	void SetSurface(Surface*&);
     virtual ~Element();
 	
 };

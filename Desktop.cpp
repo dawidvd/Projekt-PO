@@ -22,9 +22,14 @@ Desktop::Desktop()
     width = CurrentDisplay.w;
     high = CurrentDisplay.h;
 	color = color.GetFlatColor(FlatColor::silver);
-	Elements.push_back(new Icon<Window>(this));
+	auto temp = new Icon<Window>(this);
+	Surface *surf = new Surface;
+	surf->SetImage("addwindowicon.png");
+	temp->SetSurface(surf);
+	Elements.push_back(temp);
 	Elements.push_back(new Label("Open window", 200, 12));
-	
+	surface = new Surface;
+	surface->SetImage("MainWallpaper.png");
     //Elements.push_back(new DragAndDropButton());
 }
 

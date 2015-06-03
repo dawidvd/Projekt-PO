@@ -6,6 +6,12 @@ Surface::Surface()
 	mySurface = nullptr;
 }
 
+void Surface::Week()
+{
+	myTexture = nullptr;
+	mySurface = nullptr;
+}
+
 void Surface::Draw(SDL_Rect* rect, SDL_Renderer* renderer)
 {
 	if(mySurface != nullptr && renderer != nullptr && rect != nullptr)
@@ -30,7 +36,7 @@ Surface::~Surface()
 
 void Surface::SetImage(std::string string)
 {
-	mySurface = SDL_LoadBMP(string.c_str());
+	mySurface = IMG_Load(string.c_str());
 }
 
 void Surface::SetString(std::string string, unsigned int size)

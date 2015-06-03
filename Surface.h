@@ -9,12 +9,13 @@
 #define __SDL_DOMO__Surface__
 #include <SDL2/SDL.h>
 #include <SDL_ttf.h>
+#include <SDL_Image.h>
 #include <string>
 
 class Surface
 {
-	SDL_Texture* myTexture;
-	SDL_Surface* mySurface;
+	SDL_Texture *myTexture;
+	SDL_Surface *mySurface;
 public:
 	Surface();
 	void Draw(SDL_Rect*, SDL_Renderer*);

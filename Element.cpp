@@ -110,3 +110,9 @@ bool Element::PutOnTop(Element* element)
 	Elements.push_back(element);
 	return true;
 }
+
+void Element::SetSurface(Surface *&surf)
+{
+	surface = surf;
+	surf = nullptr;
+}

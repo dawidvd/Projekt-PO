@@ -4,7 +4,7 @@ CC = g++
 
 COMPILER_FLAGS = -Wall -Wextra -pedantic-errors -std=c++14 -g 
 
-LINKER_FLAGS = -lSDL2 -lSDL2_ttf -I/usr/local/include -L/usr/local/lib
+LINKER_FLAGS = -lSDL2 -lSDL2_ttf -lSDL2_image -I/usr/local/include/SDL2 -I/usr/local/include -L/usr/local/lib
 
 OBJ_NAME = main
 

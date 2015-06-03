@@ -13,6 +13,7 @@ Main_Sdl::Main_Sdl()
         exit(1);
     }
 	TTF_Init();
+	IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
     main_window = SDL_CreateWindow("Main", 0, 0, 1000, 800, SDL_WINDOW_SHOWN);
 	SDL_SetWindowFullscreen(main_window, SDL_WINDOW_FULLSCREEN_DESKTOP);
     if(main_window == nullptr)
@@ -101,6 +102,7 @@ Main_Sdl::~Main_Sdl()
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(main_window);
 	TTF_Quit();
+	IMG_Quit();
     SDL_Quit();
     for(Element* element : Elements)
     {

@@ -1,16 +1,17 @@
-#ifndef MOVEWINDOWBAR_H_T5U0WYXH
-#define MOVEWINDOWBAR_H_T5U0WYXH
+#ifndef RESIZEWINDOWBAR_H_OLJPQ1FI
+#define RESIZEWINDOWBAR_H_OLJPQ1FI
+
 #include "Button.h"
 #include "DragAndDropInterface.h"
 #include "WindowItemInterface.h"
 #include "Window.h"
 class Window;
 
-class MoveWindowBar: public Button, public DragAndDropInterface, public WindowItemInterface
+class ResizeWindowBar: public Button, public DragAndDropInterface, public WindowItemInterface
 {
 public:
-	MoveWindowBar(Window *, int X = 0, int Y = 0, int high = 0, int width = 0);
-	MoveWindowBar(Window *, Point, int high = 0, int width = 0);
+	ResizeWindowBar(Window *, int X = 0, int Y = 0, int high = 0, int width = 0);
+	ResizeWindowBar(Window *, Point, int high = 0, int width = 0);
 	virtual void Drag(Point) override;
 	virtual void Drop() override;
 	void virtual Resize(double, double) override;
@@ -20,8 +21,7 @@ protected:
 private:
 	Point startPos;
 	Window* myWindow;
-	/* data */
 };
 
 
-#endif /* end of include guard: MOVEWINDOWBAR_H_T5U0WYXH */
+#endif /* end of include guard: RESIZEWINDOWBAR_H_OLJPQ1FI */

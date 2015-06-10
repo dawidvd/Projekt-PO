@@ -10,9 +10,11 @@
 #include "Element.h"
 #include "Desktop.h"
 #include "MoveWindowBar.h"
+#include "ResizeWindowBar.h"
 #include "WindowItemInterface.h"
 
 class MoveWindowBar;
+class ResizeWindowBar;
 
 class Window : public Element
 {

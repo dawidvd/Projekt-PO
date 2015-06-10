@@ -6,11 +6,6 @@ Surface::Surface()
 	mySurface = nullptr;
 }
 
-void Surface::Week()
-{
-	myTexture = nullptr;
-	mySurface = nullptr;
-}
 
 void Surface::Draw(SDL_Rect* rect, SDL_Renderer* renderer)
 {

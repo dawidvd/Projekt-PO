@@ -1,9 +1,3 @@
-//
-//  Desktop.h
-//  SDL DOMO
-//
-//
-
 #ifndef __SDL_DOMO__Desktop__
 #define __SDL_DOMO__Desktop__
 

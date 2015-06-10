@@ -1,9 +1,3 @@
-//
-//  Label.h
-//  SDL DOMO
-//
-//
-
 #ifndef __SDL_DOMO__Label__
 #define __SDL_DOMO__Label__
 

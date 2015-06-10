@@ -1,9 +1,3 @@
-//
-//  Window.h
-//  SDL DOMO
-//
-//
-
 #ifndef __SDL_DOMO__Window__
 #define __SDL_DOMO__Window__
 
@@ -29,7 +23,7 @@ protected:
 	void AddElement(WindowItemInterface*);
 private:
 	virtual void mouseClick(Main_Sdl&) override;
-	Desktop *destkop;
+	Desktop *desktop;
 	using Element::Elements;
 	std::vector<WindowItemInterface*> Items;
 };

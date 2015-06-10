@@ -1,8 +1,3 @@
-//
-//  SDL_Main.cpp
-//  SDL DOMO
-//
-//
 #include "SDL_Main.h"
 #include "Desktop.h"
 
@@ -86,7 +81,7 @@ bool Main_Sdl::Loop()
     bool out = false;
     while (SDL_PollEvent(&event) != 0)
     {
-        if(HandleEvent(event) == true)
+        if(HandleEvent(event))
             out = true;
     }
     if(NeedRedraw)

@@ -2,7 +2,7 @@ OBJS = Button.cpp Color.cpp Desktop.cpp DragAndDropButton.cpp Element.cpp Label.
 
 CC = g++
 
-COMPILER_FLAGS = -Wall -Wextra -pedantic-errors -std=c++14 -g 
+COMPILER_FLAGS = -Wall -Wextra -Wconversion -pedantic-errors -std=c++14 -g 
 
 LINKER_FLAGS = -lSDL2 -lSDL2_ttf -lSDL2_image -I/usr/local/include/SDL2 -I/usr/local/include -L/usr/local/lib
 

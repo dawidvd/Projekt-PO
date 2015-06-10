@@ -1,9 +1,3 @@
-//
-//  Label.cpp
-//  SDL DOMO
-//
-//
-
 #include "Label.h"
 
 Label::Label(std::string str, int X, int Y, int width, int high) : Element(X, Y, width, high), str(str)
@@ -21,7 +15,6 @@ void Label::Draw(SDL_Renderer* renderer)
 	{
 		surface->Draw(&temp, renderer);
 	}
-    //Rysuje elements
     for(Element *element : Elements)
     {
         if(element != nullptr)

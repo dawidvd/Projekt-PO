@@ -1,16 +1,9 @@
-//
-//  Desktop.cpp
-//  SDL DOMO
-//
-//
-
 #include "Desktop.h"
 #include "Button.h"
-#include "DragAndDropButton.h"
 #include "Icon.h"
 #include "Label.h"
 #include "Window.h"
-#include <iostream>
+
 Desktop::Desktop()
 {
     position = Point{0, 0};

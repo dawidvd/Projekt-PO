@@ -1,14 +1,8 @@
-//
-//  SDL_Main.h
-//  SDL DOMO
-//
-//
-
 #ifndef __SDL_DOMO__SDL_Main__
 #define __SDL_DOMO__SDL_Main__
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL_image.h>
 #include "Element.h"
 #include <vector>
 #include "DragAndDropInterface.h"   

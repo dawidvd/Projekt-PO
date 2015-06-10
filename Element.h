@@ -1,9 +1,3 @@
-//
-//  Element.h
-//  SDL DOMO
-//
-//
-
 #ifndef __SDL_DOMO__Element__
 #define __SDL_DOMO__Element__
 
@@ -28,8 +22,7 @@ protected:
     virtual void highlight(){};
     virtual void unHighlight(){};
     bool isPointInside(Point point) const;
-    //Klasa abstrakcyjna
-    Element(Point positoin, int width = 100, int high = 100);
+    Element(Point position, int width = 100, int high = 100);
     Element( int X = 0,  int  Y = 0, int width = 100, int high = 100);
 public:
     virtual void Draw(SDL_Renderer*) ;

@@ -6,8 +6,8 @@ class WindowItemInterface
 {
 public:
 	virtual ~WindowItemInterface (){}
-	void virtual Resize(double, double) = 0;
-	void virtual Move(Point) = 0;
+	virtual void Resize(double, double) = 0;
+	virtual void Move(Point) = 0;
 };
 
 

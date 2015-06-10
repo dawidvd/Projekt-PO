@@ -1,9 +1,3 @@
-//
-//  Color.h
-//  SDL DOMO
-//
-//
-
 #ifndef SDL_DOMO_Color_h
 #define SDL_DOMO_Color_h
 #include <SDL2/SDL.h>
@@ -33,9 +27,12 @@ enum class FlatColor {
 
 struct Color
 {
-	unsigned short r, g, b, a;
-	public:
-	Color(const unsigned short r = 255, const unsigned short g = 255, const unsigned short b = 255, const unsigned short a = 255);
+	Uint8 a;
+	Uint8 b;
+	Uint8 g;
+	Uint8 r;
+public:
+	Color (Uint8 r = 0, Uint8 b = 0, Uint8 g = 0, Uint8 a = 0);
 	void SetRendererColor(SDL_Renderer* renderer) const;
 	static Color GetFlatColor(FlatColor );
 };

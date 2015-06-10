@@ -1,6 +1,6 @@
 #include "MoveWindowBar.h"
 
-MoveWindowBar::MoveWindowBar(Window *window, int X, int Y, int high, int width) 
+MoveWindowBar::MoveWindowBar(Window *window, int X, int Y, int high, int width)
 	: Button::Button(X, Y, high, width), myWindow(window){}
 
 MoveWindowBar::MoveWindowBar(Window *window, Point point, int high, int width)
@@ -27,7 +27,7 @@ void MoveWindowBar::mouseClick(Main_Sdl& main)
 	color = color.GetFlatColor(FlatColor::concrete);
 }
 
-void MoveWindowBar::Resize(double newWidth, double newHigh) 
+void MoveWindowBar::Resize(double newWidth, double )
 {
 	width += newWidth;
 }

@@ -1,13 +1,12 @@
-//
-//  Element.cpp
-//  SDL DOMO
-//
-//
-
 #include "Element.h"
-Element::Element(Point position,  int width,  int high) : high(high), width(width) ,position(position) {surface = nullptr;}
 
-Element::Element( int X,  int Y,  int width,  int high) : Element::Element(Point{X,Y}, high, width) { }
+Element::Element(Point position,  int width,  int high) : high(high), width(width) ,position(position), color({255, 255, 255})
+{
+	surface = nullptr;
+}
+
+Element::Element( int X,  int Y,  int width,  int high) : Element::Element(Point{X,Y}, high, width)
+{ }
 
 void Element::Draw(SDL_Renderer* renderer) 
 {
@@ -18,7 +17,6 @@ void Element::Draw(SDL_Renderer* renderer)
 	{
 		surface->Draw(&temp, renderer);
 	}
-    //Rysuje elements
     for(Element *element : Elements)
     {
         if(element != nullptr)
@@ -42,7 +40,7 @@ bool Element::HandleMouseClick(Point position , Main_Sdl& main)
     if(!isPointInside(position))
        return false;
     bool handled = false;
-    for(int i = Elements.size(); i-- > 0;)
+    for(unsigned long i = Elements.size(); i-- > 0;)
     {
 		Element *element = Elements[i];
 		if(element != nullptr && element->HandleMouseClick(position, main))
@@ -64,7 +62,7 @@ bool Element::isPointInside(Point point) const
 bool Element::HandleMouseUp(Point position, bool &Processed)
 {
     bool out = false;
-    for(int i = Elements.size(); i-- > 0;)
+    for(unsigned long i = Elements.size(); i-- > 0;)
     {
 		Element *element = Elements[i];
         if(element != nullptr)

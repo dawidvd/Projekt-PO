@@ -1,11 +1,3 @@
-//
-//  DragAndDropButton.h
-//  SDL DOMO
-//
-//  Created by Dawid Hajda on 10.04.2015.
-//  Copyright (c) 2015 Dawid Hajda. All rights reserved.
-//
-
 #ifndef __SDL_DOMO__DragAndDropButton__
 #define __SDL_DOMO__DragAndDropButton__
 

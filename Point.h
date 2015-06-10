@@ -1,23 +1,17 @@
-//
-//  Point.h
-//  SDL DOMO
-//
-//
-
 #ifndef SDL_DOMO_Point_h
 #define SDL_DOMO_Point_h
 struct Point
 {
     int x, y;
     
-    bool operator < (Point& punkt) const
+    bool operator < (Point& point) const
     {
-        return x < punkt.x && y < punkt.y;
+        return x < point.x && y < point.y;
     }
     
-    bool operator > (Point& punkt) const
+    bool operator > (Point& point) const
     {
-        return !(*this < punkt);
+        return !(*this < point);
     }
     
     Point& operator -= (Point& point)

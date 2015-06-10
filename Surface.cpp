@@ -1,3 +1,4 @@
+#include <SDL_ttf.h>
 #include "Surface.h"
 
 Surface::Surface()
@@ -34,7 +35,7 @@ void Surface::SetImage(std::string string)
 	mySurface = IMG_Load(string.c_str());
 }
 
-void Surface::SetString(std::string string, unsigned int size)
+void Surface::SetString (std::string string, int size)
 {
 	TTF_Font* Font = TTF_OpenFont("Font.ttf", size);
 	SDL_Color color = {0,0,0, 1};

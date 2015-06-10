@@ -1,10 +1,3 @@
-//
-//
-//  Surface.h
-//  SDL DOMO
-//
-//
-
 #ifndef __SDL_DOMO__Surface__
 #define __SDL_DOMO__Surface__
 #include <SDL2/SDL.h>
@@ -21,7 +14,7 @@ public:
 	void Draw(SDL_Rect*, SDL_Renderer*);
 	~Surface();
 	void SetImage(std::string);
-	void SetString(std::string, unsigned int i = 14);
+	void SetString (std::string, int i = 14);
 
 };
 #endif /* defined(__SDL_DOMO__Surface__) */

@@ -1,14 +1,4 @@
-//
-//  DragAndDropButton.cpp
-//  SDL DOMO
-//
-//  Created by Dawid Hajda on 10.04.2015.
-//  Copyright (c) 2015 Dawid Hajda. All rights reserved.
-//
-
 #include "DragAndDropButton.h"
-
-
 
 void DragAndDropButton::mouseClick(Main_Sdl& main)
 {

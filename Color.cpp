@@ -1,14 +1,12 @@
 #include "Color.h"
 
-
-Color::Color(const unsigned short r,const unsigned short g,const unsigned short b,const unsigned short a): r(r), g(g), b(b), a(a){}
+Color::Color (Uint8 r, Uint8 b, Uint8 g, Uint8 a): a(a),b(b), g(g), r(r){}
 
 void Color::SetRendererColor(SDL_Renderer* renderer) const
 {
 	SDL_SetRenderDrawColor(renderer, r, g, b, a);
 }
 
-//Na podstawie http://flatuicolors.com
 Color Color::GetFlatColor(FlatColor color)
 {
     switch (color) {

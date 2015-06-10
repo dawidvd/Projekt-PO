@@ -1,9 +1,3 @@
-//
-//  Button.cpp
-//  SDL DOMO
-//
-//
-
 #include "Button.h"
 
 void Button::highlight()

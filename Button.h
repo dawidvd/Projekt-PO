@@ -1,9 +1,3 @@
-//
-//  Button.h
-//  SDL DOMO
-//
-//
-
 #ifndef __SDL_DOMO__Button__
 #define __SDL_DOMO__Button__
 
@@ -16,7 +10,7 @@ protected:
     virtual void mouseClick(Main_Sdl&) override = 0;
     
 public:
-    Button(Point positoin, int high = 100, int width = 100);
+    Button(Point, int high = 100, int width = 100);
     Button( int X = 0,  int  Y = 0, int high = 100, int width = 100);
 };
 #endif /* defined(__SDL_DOMO__Button__) */

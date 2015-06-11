@@ -3,6 +3,7 @@
 #include "Icon.h"
 #include "Label.h"
 #include "Window.h"
+#include "CloseButton.h"
 
 Desktop::Desktop()
 {
@@ -20,13 +21,25 @@ Desktop::Desktop()
 	surf->SetImage("addwindowicon.png");
 	temp->SetSurface(surf);
 	Elements.push_back(temp);
+	Elements.push_back(new CloseButton(0, high - 144, 96, 96));
 	Elements.push_back(new Label("Open window", 200, 12));
-	surface = new Surface;
-	surface->SetImage("MainWallpaper.png");
+	color = Color::GetFlatColor(FlatColor::pumpkin);
     //Elements.push_back(new DragAndDropButton());
 }
 
 void Desktop::AddWindow(Element* window)
 {
 	Elements.push_back(window);
+}
+void Desktop::Delete(Element* window)
+{
+	unsigned int index = 0;
+	for(; index < Elements.size(); index ++)
+	{
+		if(Elements[index] == window)
+			break;
+	}
+	Elements.erase(Elements.begin() + index);
+	delete window;
+
 }

@@ -1,7 +1,10 @@
 #include "MoveWindowBar.h"
 
 MoveWindowBar::MoveWindowBar(Window *window, int X, int Y, int high, int width)
-	: Button::Button(X, Y, high, width), myWindow(window){}
+	: Button::Button(X, Y, high, width), myWindow(window){
+		surface = new Surface();
+		surface->SetImage("lable.png");
+	}
 
 MoveWindowBar::MoveWindowBar(Window *window, Point point, int high, int width)
 	: Button::Button(point, high, width), myWindow(window){}

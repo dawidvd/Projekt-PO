@@ -4,7 +4,7 @@ Label::Label(std::string str, int X, int Y, int width, int high) : Element(X, Y,
 {
 	color.a = 0;
 	surface = new Surface();
-	surface->SetString(str);
+	surface->SetString(str, 40);
 }
 
 void Label::Draw(SDL_Renderer* renderer)

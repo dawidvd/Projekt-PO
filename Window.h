@@ -6,9 +6,11 @@
 #include "MoveWindowBar.h"
 #include "ResizeWindowBar.h"
 #include "WindowItemInterface.h"
+#include "CloseWindow.h"
 
 class MoveWindowBar;
 class ResizeWindowBar;
+class CloseWindow;
 
 class Window : public Element
 {
@@ -19,6 +21,7 @@ public:
     void Resize(int newWidth, int newHigh);
     void Move(Point);
 	void PutMeOnTop();
+	void Close();
 protected:
 	void AddElement(WindowItemInterface*);
 private:

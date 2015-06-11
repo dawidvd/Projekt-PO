@@ -29,6 +29,8 @@ Window::Window(Desktop *desktop, int X, int Y, int high, int width) : Element(X,
 								 (int) (high * 0.05 + 1)));
 	AddElement(new ResizeWindowBar(this, (int) (position.x - 0.05 * width + width), (int) (position.y + high * 0.95),
 								   (int) (0.05 * width + 1), (int) (high * 0.05 + 1)));
+	AddElement(new CloseWindow(this, (int) (position.x), (int) (position.y),
+								   (int) (0.05 * width + 1), (int) (high * 0.05 + 1)));
 }
 
 void Window::mouseClick(Main_Sdl&)
@@ -57,4 +59,9 @@ void Window::AddElement(WindowItemInterface* item)
 void Window::PutMeOnTop()
 {
 	desktop->PutOnTop(this);
+}
+
+void Window::Close()
+{
+	desktop->Delete(this);
 }

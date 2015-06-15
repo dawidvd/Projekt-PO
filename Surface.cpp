@@ -42,6 +42,8 @@ void Surface::SetString (std::string string, int size)
 	if(Font)
 	{
 		mySurface = TTF_RenderText_Solid(Font, string.c_str(), color);
+		SDL_DestroyTexture(myTexture);
+		myTexture = nullptr;
 		TTF_CloseFont(Font);
 	}
 }

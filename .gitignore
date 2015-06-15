@@ -35,4 +35,5 @@ tags
 *.dSYM
 # Cmake
 /CMakeFiles
-
+/html
+/latex

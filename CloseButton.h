@@ -20,6 +20,16 @@ public:
 	}
 	virtual ~CloseButton ()
 	{}
+
+	virtual void highlight() override
+	{
+		color = color.GetFlatColor(FlatColor::alizarin);
+	}
+
+	virtual void unHighlight() override
+	{
+		color = color.GetFlatColor(FlatColor::pomegranate);
+	}
 };
 
 #endif /* end of include guard: CLOSEBUTTON_H_XRS0V8QU */

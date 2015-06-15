@@ -1,4 +1,4 @@
-OBJS = Button.cpp Color.cpp Desktop.cpp DragAndDropButton.cpp Element.cpp Label.cpp SDL_Main.cpp Surface.cpp Window.cpp main.cpp MoveWindowBar.cpp ResizeWindowBar.cpp CloseWindow.cpp
+OBJS = Button.cpp Color.cpp Desktop.cpp DragAndDropButton.cpp Element.cpp Label.cpp SDL_Main.cpp Surface.cpp Window.cpp main.cpp MoveWindowBar.cpp ResizeWindowBar.cpp CloseWindow.cpp TextBox.cpp TextWindow.cpp WindowTextBox.cpp
 
 CC = g++
 

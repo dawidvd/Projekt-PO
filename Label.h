@@ -8,6 +8,7 @@ class Label : public Element
 public:
 	Label(std::string, int X = 0, int Y = 0, int width = 100, int high = 100);
 	virtual void Draw(SDL_Renderer*) override;
+    virtual void mouseClick(Main_Sdl& ) override {}
 private:
 	std::string str;
     

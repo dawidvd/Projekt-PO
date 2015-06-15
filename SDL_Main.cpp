@@ -22,10 +22,16 @@ Main_Sdl::Main_Sdl()
     Elements.push_back(new Desktop());
     NeedRedraw = true;
     toDrag = nullptr;
+	textbox = nullptr;
 }
 
 void Main_Sdl::HandleMouseDown()
 {
+	if(textbox)
+	{
+		textbox = nullptr;
+		SDL_StopTextInput();
+	}
     Point mousePosition;
     SDL_GetMouseState(&mousePosition.x, &mousePosition.y);
     for(Element *element: Elements)
@@ -72,6 +78,19 @@ bool Main_Sdl::HandleEvent(SDL_Event event)
         }
         HandleMouseMove();
     }
+	if(event.type == SDL_TEXTINPUT && textbox != nullptr)
+	{
+		textbox->AddText(event.text.text);
+		NeedRedraw = true;
+	}
+	if(event.type == SDL_KEYDOWN)
+	{
+		if(event.key.keysym.sym == SDLK_BACKSPACE && textbox != nullptr)
+		{
+			textbox->Delete();
+			NeedRedraw = true;
+		}
+	}
     return false;
 }
 
@@ -96,6 +115,7 @@ Main_Sdl::~Main_Sdl()
 {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(main_window);
+	SDL_StopTextInput();
 	TTF_Quit();
 	IMG_Quit();
     SDL_Quit();
@@ -111,7 +131,6 @@ void Main_Sdl::Draw() const
     Uint8 R,G,B,A;
     SDL_GetRenderDrawColor(renderer, &R, &G, &B, &A);
     SDL_RenderClear(renderer);
-    //Draw all elements
     for(Element *element : Elements)
     {
         if(element != nullptr)
@@ -133,3 +152,8 @@ Element& Main_Sdl::GetDesktop(unsigned int index ) const
 	return *Elements[index];
 }
 
+void Main_Sdl::SetToTextInput(TextInputInterface* textbox)
+{
+	this->textbox = textbox;
+	SDL_StartTextInput();
+}

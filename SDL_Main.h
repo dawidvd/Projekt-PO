@@ -6,8 +6,11 @@
 #include "Element.h"
 #include <vector>
 #include "DragAndDropInterface.h"   
+#include "TextInputInterface.h"
 
 class Element;
+class TextBox;
+
 class Main_Sdl
 {
 private:
@@ -21,12 +24,14 @@ private:
     //return true if Event is of type quit
     bool HandleEvent(SDL_Event);
     DragAndDropInterface* toDrag;
+	TextInputInterface* textbox;
     
 public:
     Main_Sdl();
     bool Loop();
     ~Main_Sdl();
 	void SetToDrag(DragAndDropInterface* toDrag);
+	void SetToTextInput(TextInputInterface* textbox);
 	Element& GetDesktop(unsigned int index = 0) const;
 
 };

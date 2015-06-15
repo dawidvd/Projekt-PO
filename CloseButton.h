@@ -8,9 +8,15 @@ class CloseButton:public Button
 {
 public:
     CloseButton(Point position, int high = 100, int width = 100)
-		: Button::Button(position, high, width) {}
+		: Button::Button(position, high, width) 
+	{
+		unHighlight();
+	}
     CloseButton(int X = 0,  int  Y = 0, int high = 100, int width = 100)
-	: Button(X, Y, high, width){}
+	: Button(X, Y, high, width)
+	{
+		unHighlight();
+	}
 
 	virtual void mouseClick(Main_Sdl&) override
 	{
